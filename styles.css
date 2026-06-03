@@ -426,6 +426,82 @@ img {
   grid-column: span 4;
 }
 
+.rail {
+  margin-top: 34px;
+}
+
+.ri {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 26px;
+  padding-bottom: 30px;
+}
+
+.ri .when {
+  text-align: right;
+}
+
+.ri .h {
+  color: var(--blue);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.ri .s {
+  margin-top: 3px;
+  color: var(--slate);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ri .line {
+  position: relative;
+  padding-left: 28px;
+}
+
+.ri .line::before {
+  position: absolute;
+  top: 8px;
+  bottom: -30px;
+  left: 6px;
+  width: 2px;
+  content: "";
+  background: var(--line);
+}
+
+.ri:last-child .line::before {
+  display: none;
+}
+
+.ri .line::after {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  content: "";
+  border: 3px solid var(--blue);
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.ri h3 {
+  margin: 0 0 8px;
+  color: var(--navy-900);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.ri p {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--slate);
+}
+
 .report-card {
   margin-top: 34px;
   padding: 28px;
@@ -505,6 +581,11 @@ img {
   .span2,
   .span4 {
     grid-column: span 2;
+  }
+
+  .ri {
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
   }
 }
 

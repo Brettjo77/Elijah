@@ -3,6 +3,7 @@
   var pages = {
     home: document.getElementById('home'),
     pictures: document.getElementById('pictures'),
+    timeline: document.getElementById('timeline'),
     report: document.getElementById('report')
   };
   var current = 'home';
