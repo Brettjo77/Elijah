@@ -269,6 +269,8 @@ img {
 .title,
 .shead h2,
 .chip h3,
+.example-card h3,
+.preview-head h3,
 .report-card h3 {
   color: var(--navy-900);
   font-family: "Space Grotesk", sans-serif;
@@ -281,7 +283,6 @@ img {
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.02;
-  text-wrap: balance;
 }
 
 .lede {
@@ -316,6 +317,7 @@ img {
   border-radius: 12px;
   font-size: 0.9rem;
   background: rgba(12, 28, 48, 0.82);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
@@ -502,6 +504,180 @@ img {
   color: var(--slate);
 }
 
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.example-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 310px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f8fbff;
+}
+
+.example-card::after {
+  position: absolute;
+  right: -34px;
+  bottom: -46px;
+  width: 170px;
+  height: 170px;
+  content: "";
+  border: 28px solid rgba(63, 134, 209, 0.12);
+  border-radius: 42px;
+  transform: rotate(14deg);
+}
+
+.example-card.power {
+  background: linear-gradient(160deg, #fff8f1, #f8fbff 64%);
+}
+
+.example-card.word {
+  background: linear-gradient(160deg, #f2f9ff, #f8fbff 64%);
+}
+
+.example-type {
+  display: inline-flex;
+  margin-bottom: 34px;
+  padding: 7px 11px;
+  color: var(--blue);
+  border: 1px solid rgba(63, 134, 209, 0.24);
+  border-radius: 999px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.example-card h3 {
+  max-width: 12ch;
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.04;
+}
+
+.example-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 34ch;
+  margin: 0;
+  color: var(--slate);
+}
+
+.example-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 22px;
+  padding: 10px 14px;
+  color: #fff;
+  border-radius: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--navy-900);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.example-link:hover,
+.example-link:focus-visible {
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+.example-meta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.example-meta span {
+  padding: 7px 10px;
+  color: var(--navy-900);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.preview-block {
+  margin-top: 36px;
+}
+
+.preview-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.preview-head h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.preview-head p {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
+.slide-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.slide-preview,
+.word-preview {
+  margin: 0;
+}
+
+.slide-preview:first-child {
+  grid-column: 1 / -1;
+}
+
+.slide-preview img,
+.word-preview img {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 20px 45px -32px rgba(12, 28, 48, 0.75);
+}
+
+.slide-preview img {
+  aspect-ratio: 16 / 9;
+}
+
+.word-preview img {
+  max-height: 760px;
+  object-fit: contain;
+}
+
+.slide-preview figcaption,
+.word-preview figcaption {
+  margin-top: 8px;
+  color: var(--slate);
+  font-size: 0.8rem;
+}
+
 .report-card {
   margin-top: 34px;
   padding: 28px;
@@ -545,6 +721,7 @@ img {
     padding: 12px 16px;
     gap: 14px;
     background: rgba(12, 28, 48, 0.92);
+    -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
   }
 
@@ -580,6 +757,27 @@ img {
 
   .chips {
     grid-template-columns: 1fr;
+  }
+
+  .example-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-head {
+    display: block;
+  }
+
+  .preview-head p {
+    margin-top: 5px;
+    text-align: left;
+  }
+
+  .slide-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide-preview:first-child {
+    grid-column: auto;
   }
 
   .gal {

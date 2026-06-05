@@ -4,6 +4,7 @@
     home: document.getElementById('home'),
     pictures: document.getElementById('pictures'),
     timeline: document.getElementById('timeline'),
+    examples: document.getElementById('examples'),
     report: document.getElementById('report')
   };
   var current = 'home';
